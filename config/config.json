@@ -1,0 +1,23 @@
+{
+  "development": {
+    "database": "wdv442_space_tracker",
+    "dialect": "mysql",
+    "host": "wdv442_mysql",
+    "password": "asl",
+    "username": "asl"
+  },
+  "production": {
+    "database": "wdv442_space_tracker",
+    "dialect": "mysql",
+    "host": "wdv442_mysql",
+    "password": "asl",
+    "username": "asl"
+  },
+  "test": {
+    "database": "wdv442_space_tracker",
+    "dialect": "mysql",
+    "host": "wdv442_mysql",
+    "password": "asl",
+    "username": "asl"
+  }
+}
