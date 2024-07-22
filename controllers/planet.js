@@ -37,15 +37,33 @@ const create = async (req, res) => {
 };
 
 // Update an existing resource
-const update = (req, res) => {
-  // Respond with a single resource and 2xx code
-  res.status(200).json(`/planets/${req.params.id}`);
+const update = async (req, res) => {
+  try {
+    const planet = await Planet.findByPk(req.params.id);
+    if (planet) {
+      await planet.update(req.body);
+      res.status(200).json(planet);
+    } else {
+      res.status(404).json({ error: "Planet not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 // Remove a single resource
-const remove = (req, res) => {
-  // Respond with a 2xx status code and bool
-  res.status(204).json(true);
+const remove = async (req, res) => {
+  try {
+    const planet = await Planet.findByPk(req.params.id);
+    if (planet) {
+      await planet.destroy();
+      res.status(204).json(true);
+    } else {
+      res.status(404).json({ error: "Planet not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 // Export all controller actions
