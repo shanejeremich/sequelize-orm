@@ -17,13 +17,6 @@ const show = async (req, res) => {
       include: [
         {
           model: Star,
-          as: "Stars",
-          include: [
-            {
-              model: Planet,
-              as: "Planets",
-            },
-          ],
         },
       ],
     });

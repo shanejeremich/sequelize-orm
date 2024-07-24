@@ -3,7 +3,14 @@ const { Planet, Star } = require(`../models/index.js`);
 // Show all resources
 const index = async (req, res) => {
   try {
-    const planets = await Planet.findAll();
+    const planets = await Planet.findAll({
+      include: [
+        {
+          model: Star,
+          as: "Stars",
+        },
+      ],
+    });
     res.status(200).json(planets);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -14,7 +21,7 @@ const index = async (req, res) => {
 const show = async (req, res) => {
   try {
     const planet = await Planet.findByPk(req.params.id, {
-      include: [{ model: Star, as: "Stars" }],
+      include: [{ model: Star, as: "Stars", through: { attributes: [] } }],
     });
     if (planet) {
       res.status(200).json(planet);

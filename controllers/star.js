@@ -1,4 +1,4 @@
-const { Star, Planet, Galaxy } = require("../models/index.js");
+const { Star, Planet, Galaxy, StarsPlanets } = require("../models/index.js");
 
 // Show all resources
 const index = async (req, res) => {
@@ -15,11 +15,16 @@ const show = async (req, res) => {
   try {
     const star = await Star.findByPk(req.params.id, {
       include: [
-        { model: Planet, as: "Planets" },
-        { model: Galaxy, as: "Galaxy" },
+        {
+          model: Planet,
+          as: "Planets",
+          through: { attributes: [] },
+        },
+        { model: Galaxy },
       ],
     });
     if (star) {
+      console.log(`Found ${star.Planets.length} planet(s) associated with this star.`);
       res.status(200).json(star);
     } else {
       res.status(404).json({ error: "Star not found" });
@@ -32,8 +37,29 @@ const show = async (req, res) => {
 // Create a new resource
 const create = async (req, res) => {
   try {
-    const star = await Star.create(req.body);
-    res.status(201).json(star);
+    const { galaxyId, planetIds, ...starData } = req.body;
+
+    const galaxy = await Galaxy.findByPk(galaxyId);
+    if (!galaxy) {
+      return res.status(404).json({ error: "Galaxy not found" });
+    }
+
+    const star = await Star.create(starData);
+
+    await star.setGalaxy(galaxy);
+
+    if (planetIds && planetIds.length > 0) {
+      const planets = await Planet.findAll({
+        where: { id: planetIds },
+      });
+      await star.setPlanets(planets);
+    }
+
+    const starWithAssociations = await Star.findByPk(star.id, {
+      include: [{ model: Galaxy }, { model: Planet }],
+    });
+
+    res.status(201).json(starWithAssociations);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
