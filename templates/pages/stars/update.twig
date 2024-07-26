@@ -1,0 +1,39 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block title %}Update New Star
+{% endblock %}
+
+{% block main %}
+
+	<section class="star-update">
+		<h1 class="star-update__title">Update Star</h1>
+		<form class="star-update__form" action="/stars/{{star.id}}" method="post" enctype="multipart/form-data">
+			<label class="star-update__label" for="name">Name:</label>
+			<input class="star-update__input" type="text" id="name" name="name" value="{{star.name}}" required>
+
+			<label class="star-update__label" for="size">Size:</label>
+			<input class="star-update__input" type="number" id="size" name="size" value="{{star.size}}" required>
+
+			<label class="star-update__label" for="description">Description:</label>
+			<textarea class="star-update__textarea" id="description" name="description" required>{{star.description}}</textarea>
+
+			<label for="image" class="star-update__label">Upload an image:</label>
+			<input class="star-update__input" type="file" id="image" name="image" accept="image/*">
+
+			<label for="galaxyId">Galaxy:</label>
+			<select
+				id="galaxyId" name="galaxyId">
+				{% for galaxy in galaxies %}
+					<option value="{{ galaxy.id }}"{% if galaxy.id == star.galaxyId %}selected{% endif %}>{{ galaxy.name }}</option>
+				{% endfor %}
+			</select>
+
+			<label for="planets">Planets (comma-separated IDs):</label>
+			<input type="text" id="planets" name="planets" value="{{ planetIds|join(', ') }}">
+
+			<button type="submit" class="star-update__button">Update Star</button>
+		<a href="/stars/{{ star.id }}" class="star-update__link star-update__link--cancel">Cancel</a>
+		</form>
+	</section>
+
+{% endblock %}

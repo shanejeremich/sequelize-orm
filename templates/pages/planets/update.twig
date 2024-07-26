@@ -1,0 +1,33 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block title %}Update Planet
+{% endblock %}
+
+{% block main %}
+
+	<section class="planet-update">
+		<h1 class="planet-update__title">Update Planet</h1>
+		<form class="planet-update__form" action="/planets/{{ planet.id }}" method="post" enctype="multipart/form-data">
+				<label class="planet-update__label" for="name">Name:</label>
+				<input type="text" id="name" name="name" value="{{ planet.name }}" required class="planet-update__input">
+			
+				<label class="planet-update__label" for="size">Size:</label>
+				<input type="number" id="size" name="size" value="{{ planet.size }}" required class="planet-update__input planet-update__input--number">
+			
+				<label class="planet-update__label" for="description">Description:</label>
+				<textarea id="description" name="description" required class="planet-update__textarea">{{ planet.description }}</textarea>
+			</div>
+			<label class="planet-update__label" for="image">Planet Image:</label>
+			<input type="file" id="image" name="image" class="planet-update__input planet-update__input--file">
+
+      
+      <label for="stars">Stars (comma-separated IDs):</label>
+      <input type="text" id="stars" name="stars" value="{{ starIds|join(', ') }}" class="planet-update__input">
+
+			<button type="submit" class="planet-update__button">Update Planet</button>
+		<a href="/planets/{{ planet.id }}" class="planet-update__link planet-update__link--cancel">Cancel</a>
+		</form>
+
+	</section>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block title %}Create New Star
+{% endblock %}
+
+{% block main %}
+
+	<section class="star-create">
+		<h1 class="star-create__title">Create a New Star</h1>
+		<form class="star-create__form" action="/stars" method="post" enctype="multipart/form-data">
+			<label class="star-create__label" for="name">Name:</label>
+			<input class="star-create__input" type="text" id="name" name="name" required>
+
+			<label class="star-create__label" for="size">Size:</label>
+			<input class="star-create__input" type="number" id="size" name="size" required>
+
+			<label class="star-create__label" for="description">Description:</label>
+			<textarea class="star-create__textarea" id="description" name="description" required></textarea>
+
+			<label for="image" class="star-create__label">Upload an image:</label>
+			<input class="star-create__input" type="file" id="image" name="image" accept="image/*" required>
+
+			<label for="galaxyId">Galaxy:</label>
+			<select
+				id="galaxyId" name="galaxyId">
+				{% for galaxy in galaxies %}
+					<option value="{{ galaxy.id }}">{{ galaxy.name }}</option>
+				{% endfor %}
+			</select>
+
+			<label for="planets">Planets (comma-separated IDs):</label>
+			<input type="text" id="planets" name="planets">
+
+			<button class="star-create__button" type="submit">Create Star</button>
+		</form>
+	</section>
+
+{% endblock %}

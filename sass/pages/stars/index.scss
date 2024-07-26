@@ -1,0 +1,55 @@
+@use "../../base/" as *;
+
+.stars {
+  &__title {
+    font-size: $heading-1-size;
+    font-weight: $font-weight-bold;
+  }
+
+  &__add-link {
+    margin: 1rem 0;
+  }
+
+  &__list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+
+    &-item {
+      background: $background-secondary;
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__link {
+    color: $mauveine;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    transition: scale 0.3s;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+
+  &__image {
+    width: 17.1875rem;
+    height: 12.5rem;
+    border-radius: 0.5rem;
+  }
+
+  &__name {
+    font-size: $heading-3-size;
+    font-weight: $font-weight-bold;
+    margin: 1rem 0;
+  }
+}

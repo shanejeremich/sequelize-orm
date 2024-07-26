@@ -1,0 +1,71 @@
+@use "../../base/" as *;
+@use "../../components/" as *;
+
+.galaxy {
+  &__title {
+    font-size: $heading-1-size;
+    font-weight: $font-weight-bold;
+    margin: 1rem 0;
+    color: $black;
+    letter-spacing: 0.25rem;
+  }
+
+  &__size {
+    font-size: $heading-6-size;
+    font-weight: $font-weight-bold;
+    margin: 1rem 0;
+  }
+
+  &__description {
+    font-size: $paragraph-size;
+    line-height: $line-height-primary;
+    margin: 2rem 0;
+    width: max-content;
+  }
+
+  &__image {
+    width: auto;
+    height: 20rem;
+    border-radius: 0.5rem;
+  }
+
+  &__name {
+    font-size: $heading-3-size;
+    font-weight: $font-weight-bold;
+    margin: 1rem 0;
+  }
+
+  &__link {
+    @extend .button;
+    margin-top: 1rem;
+  }
+
+  &__button {
+    @extend .button;
+    margin-top: 1rem;
+  }
+
+  .galaxy-stars {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+
+    &-item {
+      background: $background-secondary;
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+
+    &__image {
+      width: 4.5rem;
+      height: 3.125rem;
+      border-radius: 0.5rem;
+      margin: 0.25rem 0;
+
+      &:hover {
+        scale: 1.05;
+      }
+    }
+  }
+}

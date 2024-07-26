@@ -1,0 +1,30 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block title %}Create New Galaxy
+{% endblock %}
+
+{% block main %}
+
+	<section class="galaxy-create">
+		<h1 class="galaxy-create__title">Create a New Galaxy</h1>
+		<form class="galaxy-create__form" action="/galaxies" method="post" enctype="multipart/form-data">
+			<label class="galaxy-create__label" for="name">Name:</label>
+			<input class="galaxy-create__input" type="text" id="name" name="name" required>
+
+			<label class="galaxy-create__label" for="size">Size:</label>
+			<input class="galaxy-create__input galaxy-create__input--number" type="number" id="size" name="size" required>
+
+			<label class="galaxy-create__label" for="description">Description:</label>
+			<textarea class="galaxy-create__textarea" id="description" name="description" required></textarea>
+
+			<label class="galaxy-create__label" for="image">Image:</label>
+			<input class="galaxy-create__input galaxy-create__input--file" type="file" id="image" name="image" accept="image/*">
+
+			<label for="stars">Stars (comma-separated IDs):</label>
+			<input type="text" id="stars" name="stars">
+
+			<button class="galaxy-create__button" type="submit">Create Galaxy</button>
+		</form>
+	</section>
+
+{% endblock %}

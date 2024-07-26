@@ -15,7 +15,6 @@ module.exports = {
 
     const planetMap = new Map(planets.map(planet => [planet.name, planet.id]));
 
-    // Prepare data for the join table (starsPlanets)
     const starsPlanets = [
       {
         planetId: planetMap.get("Earth"),
@@ -49,7 +48,6 @@ module.exports = {
       },
     ];
 
-    // Seed the join table
     await queryInterface.bulkInsert("StarsPlanets", starsPlanets, {});
   },
 

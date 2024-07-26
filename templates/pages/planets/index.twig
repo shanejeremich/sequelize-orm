@@ -1,0 +1,26 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block main %}
+
+	<section class="planets">
+		<h1 class="planets__title">Planets</h1>
+		<button class="planets__add-link" onclick="window.location.href='/planets/new'">Add New Planet</button>
+		<ul class="planets__list">
+
+			{% for planet in planets %}
+				<li class="planets__item">
+					<a class="planets__link" href="/planets/{{ planet.id }}">
+						<img src="{{ planet.imageUrl }}" alt="{{ planet.name }}" class="planets__image">
+						<span class="planets__name">{{ planet.name }}</span>
+					</a>
+					<form class="planets__form delete-form" action="/planets/delete/{{ planet.id }}" method="post">
+						<button class="planets__button planets__button--delete" type="submit">Delete</button>
+						<button class="button" onclick="window.location.href='/planets/{{ planet.id }}/edit'" type="button">Update</button>
+					</form>
+				</li>
+			{% endfor %}
+
+		</ul>
+	</section>
+
+{% endblock %}

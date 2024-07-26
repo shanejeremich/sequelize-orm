@@ -1,0 +1,30 @@
+{% extends './layouts/base.twig' %}
+
+{% block main %}
+
+	<section class="home">
+		<h1 class="home__title">Welcome to the Star Tracker Library</h1>
+		<p class="home__description">Welcome to the Star Tracker Library, your premier web application for exploring and cataloging the vast wonders of the universe. Our platform provides a comprehensive database where you can seamlessly store, manage, and retrieve information on galaxies, planets, and stars. Whether you're an amateur astronomer, a seasoned astrophysicist, or simply a stargazing enthusiast, the Star Tracker Library offers an intuitive and robust interface to help you navigate the cosmos. Dive into our rich collection of celestial bodies, track your observations, and contribute to the ever-growing knowledge of our universe. Join us on this cosmic journey and let the Star Tracker Library be your guide to the stars.</p>
+
+		<div class="home__navigation">
+			<ul class="home__list">
+      <a href="/galaxies" class="home__link">
+				<li class="home__list-item">
+					Galaxies
+				</li>
+        </a>
+        <a href="/stars" class="home__link">
+				<li class="home__list-item">
+					Stars
+				</li>
+        </a>
+        <a href="/planets" class="home__link">
+				<li class="home__list-item">
+					Planets
+				</li>
+        </a>
+			</ul>
+		</div>
+	</section>
+
+{% endblock %}

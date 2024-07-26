@@ -1,0 +1,58 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block main %}
+
+	<section class="star">
+		<h1 class="star__title">{{ star.name }}</h1>
+		<img class="star__image" src="{{ star.imageUrl }}" alt="Image of {{ star.name }}"/>
+		<p class="star__size">Size:
+			{{ star.size }}</p>
+		<p class="star__description">Description:
+			{{ star.description }}</p>
+
+		<p class="star__description">Galaxy associated with
+			{{ star.name }}:
+			{% if star.Galaxy %}
+				<div class="star-planets">
+					<a href="/galaxies/{{ star.Galaxy.id }}" class="star-planets__link">
+						<img src="{{ star.Galaxy.imageUrl }}" alt="Image of {{ star.Galaxy.name }}" class="star-planets__image">
+					</a>
+					<a href="/galaxies/{{ star.Galaxy.id }}" class="star-planets__link">
+						<span class="star-planets__name">{{ star.Galaxy.name }}</span>
+					</a>
+				</div>
+			{% else %}
+				<div>No galaxy found.</div>
+			{% endif %}
+		</p>
+
+		<p class="star__description">Planets associated with
+			{{ star.name }}:
+			<ul>
+				{% for planet in star.Planets %}
+					<li>
+						<div class="star-planets">
+							<a href="/planets/{{planet.id}}" class"star-planets__link">
+								<img src="{{planet.imageUrl}}" alt="Image of {{planet.name}}" class="star-planets__image">
+							</a>
+							<a href="/planets/{{planet.id}}" class"star-planets__link">
+								<span class="star-planets__name">{{ planet.name }}</span>
+							</a>
+						</div>
+					</li>
+				{% else %}
+					<li>No planets found.</li>
+				{% endfor %}
+			</ul>
+		</p>
+
+
+		<a class="star__link star__link--update" href="/stars/{{ star.id }}/edit">Update Star</a>
+		<form class="star__form star__form--delete delete-form" action="/stars/delete/{{ star.id }}" method="post">
+			<button class="star__button star__button--delete" type="submit">Delete Star</button>
+		</form>
+
+		<a class="star__link star__link--back" href="/stars">Back to List</a>
+	</section>
+
+{% endblock %}

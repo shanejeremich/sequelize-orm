@@ -1,0 +1,695 @@
+/* SCSS HEX */
+/* Remove default margin */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  background: #a0b9c6;
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  max-width: 90em;
+  margin: 6.25rem auto 7rem;
+}
+
+.container {
+  max-width: 90em;
+  margin: 0 auto;
+}
+
+/* Box sizing rules */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* min body height */
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* Remove list styles on ul and ol elements */
+ul {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]),
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+/* responsive images/videos */
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+button,
+.button,
+.star-update__button,
+.star-update__link--cancel,
+.star__link,
+.star__button,
+.star-create__button,
+.planet-update__button,
+.planet-update__link--cancel,
+.planet__link,
+.planet__button,
+.planet-create__button,
+.galaxy-update__button,
+.galaxy-update__link--cancel,
+.galaxy__link,
+.galaxy__button,
+.galaxy-create__button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #a5f8d3;
+  color: #000000;
+  border: none;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+button:hover,
+.button:hover,
+.star-update__button:hover,
+.star-update__link--cancel:hover,
+.star__link:hover,
+.star__button:hover,
+.star-create__button:hover,
+.planet-update__button:hover,
+.planet-update__link--cancel:hover,
+.planet__link:hover,
+.planet__button:hover,
+.planet-create__button:hover,
+.galaxy-update__button:hover,
+.galaxy-update__link--cancel:hover,
+.galaxy__link:hover,
+.galaxy__button:hover,
+.galaxy-create__button:hover {
+  background-color: #995fa3;
+  color: #ffffff;
+}
+
+.input, .star-update__input, .star-create__input, .planet-update__input, .planet-create__input, .galaxy-update__input, .galaxy-create__input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+.textarea, .star-update__textarea, .star-create__textarea, .planet-update__textarea, .planet-create__textarea, .galaxy-update__textarea, .galaxy-create__textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+.footer {
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background: #a5f8d3;
+  color: #000000;
+  padding: 1rem;
+  height: 4rem;
+}
+
+.header__home {
+  align-self: center;
+  transition: all 0.2s;
+}
+.header__home-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #000000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.header__home-link:hover {
+  color: #995fa3;
+}
+.header__home-icon {
+  height: 3.5rem;
+}
+.header__home:hover {
+  filter: brightness(1.2);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+.navbar__item {
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+}
+.navbar__item:hover {
+  background: #000000;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.home__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.home__description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+.home__navigation {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+.home__link {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  transition: scale 0.3s;
+}
+.home__link:hover {
+  scale: 1.05;
+}
+.home__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+.home__list-item {
+  background: #1e1e20;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.galaxy-create {
+  max-width: 50em;
+  margin: 0 auto;
+}
+.galaxy-create__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 3rem 0;
+  color: #000000;
+  letter-spacing: 0.25rem;
+}
+.galaxy-create__form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+.galaxy-create__textarea {
+  grid-column: span 2;
+}
+.galaxy-create__button {
+  grid-column: span 2;
+}
+
+.galaxies__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.galaxies__add-link {
+  margin: 1rem 0;
+}
+.galaxies__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+.galaxies__list-item {
+  background: #1e1e20;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.galaxies__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.galaxies__link {
+  color: #802392;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  transition: scale 0.3s;
+}
+.galaxies__link:hover {
+  scale: 1.05;
+}
+.galaxies__image {
+  width: 100%;
+  height: 12.5rem;
+  border-radius: 0.5rem;
+}
+.galaxies__name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.galaxy__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: #000000;
+  letter-spacing: 0.25rem;
+}
+.galaxy__size {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.galaxy__description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 2rem 0;
+  width: max-content;
+}
+.galaxy__image {
+  width: auto;
+  height: 20rem;
+  border-radius: 0.5rem;
+}
+.galaxy__name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.galaxy__link {
+  margin-top: 1rem;
+}
+.galaxy__button {
+  margin-top: 1rem;
+}
+.galaxy .galaxy-stars {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+}
+.galaxy .galaxy-stars-item {
+  background: #1e1e20;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.galaxy .galaxy-stars__image {
+  width: 4.5rem;
+  height: 3.125rem;
+  border-radius: 0.5rem;
+  margin: 0.25rem 0;
+}
+.galaxy .galaxy-stars__image:hover {
+  scale: 1.05;
+}
+
+.galaxy-update {
+  max-width: 50em;
+  margin: 0 auto;
+}
+.galaxy-update__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 3rem 0;
+  color: #000000;
+  letter-spacing: 0.25rem;
+}
+.galaxy-update__form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+.galaxy-update__textarea {
+  grid-column: span 2;
+}
+.galaxy-update__button {
+  grid-column: span 1;
+}
+.galaxy-update__link--cancel {
+  grid-column: span 1;
+}
+
+.planet-create {
+  max-width: 50em;
+  margin: 0 auto;
+}
+.planet-create__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 3rem 0;
+  color: #000000;
+  letter-spacing: 0.25rem;
+}
+.planet-create__form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+.planet-create__textarea {
+  grid-column: span 2;
+}
+.planet-create__button {
+  grid-column: span 2;
+}
+
+.planets__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.planets__add-link {
+  margin: 1rem 0;
+}
+.planets__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+.planets__list-item {
+  background: #1e1e20;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.planets__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.planets__link {
+  color: #802392;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  transition: scale 0.3s;
+}
+.planets__link:hover {
+  scale: 1.05;
+}
+.planets__image {
+  width: 100%;
+  height: 12.5rem;
+  border-radius: 0.5rem;
+}
+.planets__name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.planet__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: #000000;
+  letter-spacing: 0.25rem;
+}
+.planet__size {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.planet__description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 2rem 0;
+  width: max-content;
+}
+.planet__image {
+  width: auto;
+  height: 20rem;
+  border-radius: 0.5rem;
+}
+.planet__name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.planet__link {
+  margin-top: 1rem;
+}
+.planet__button {
+  margin-top: 1rem;
+}
+.planet .planet-stars {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+}
+.planet .planet-stars-item {
+  background: #1e1e20;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.planet .planet-stars__image {
+  width: 4.5rem;
+  height: 3.125rem;
+  border-radius: 0.5rem;
+  margin: 0.25rem 0;
+}
+.planet .planet-stars__image:hover {
+  scale: 1.05;
+}
+
+.planet-update {
+  max-width: 50em;
+  margin: 0 auto;
+}
+.planet-update__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 3rem 0;
+  color: #000000;
+  letter-spacing: 0.25rem;
+}
+.planet-update__form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+.planet-update__textarea {
+  grid-column: span 2;
+}
+.planet-update__button {
+  grid-column: span 1;
+}
+.planet-update__link--cancel {
+  grid-column: span 1;
+}
+
+.star-create {
+  max-width: 50em;
+  margin: 0 auto;
+}
+.star-create__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 3rem 0;
+  color: #000000;
+  letter-spacing: 0.25rem;
+}
+.star-create__form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+.star-create__textarea {
+  grid-column: span 2;
+}
+.star-create__button {
+  grid-column: span 2;
+}
+
+.stars__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.stars__add-link {
+  margin: 1rem 0;
+}
+.stars__list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+.stars__list-item {
+  background: #1e1e20;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.stars__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.stars__link {
+  color: #802392;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  transition: scale 0.3s;
+}
+.stars__link:hover {
+  scale: 1.05;
+}
+.stars__image {
+  width: 17.1875rem;
+  height: 12.5rem;
+  border-radius: 0.5rem;
+}
+.stars__name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.star__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: #000000;
+  letter-spacing: 0.25rem;
+}
+.star__size {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.star__description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 2rem 0;
+  width: max-content;
+}
+.star__image {
+  width: auto;
+  height: 20rem;
+  border-radius: 0.5rem;
+}
+.star__name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.star__link {
+  margin-top: 1rem;
+}
+.star__button {
+  margin-top: 1rem;
+}
+.star .star-planets {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+}
+.star .star-planets-item {
+  background: #1e1e20;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.star .star-planets__image {
+  width: 4.5rem;
+  height: 3.125rem;
+  border-radius: 0.5rem;
+  margin: 0.25rem 0;
+}
+.star .star-planets__image:hover {
+  scale: 1.05;
+}
+
+.star-update {
+  max-width: 50em;
+  margin: 0 auto;
+}
+.star-update__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 3rem 0;
+  color: #000000;
+  letter-spacing: 0.25rem;
+}
+.star-update__form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+.star-update__textarea {
+  grid-column: span 2;
+}
+.star-update__button {
+  grid-column: span 1;
+}
+.star-update__link--cancel {
+  grid-column: span 1;
+}
+
+/*# sourceMappingURL=main.css.map */

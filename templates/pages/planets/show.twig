@@ -1,0 +1,41 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block main %}
+
+	<section class="planet">
+		<h1 class="planet__title">{{ planet.name }}</h1>
+		<img class="planet__image" src="{{ planet.imageUrl }}" alt="Image of {{ planet.name }}"/>
+		<p class="planet__size">Size:
+			{{ planet.size }}</p>
+		<p class="planet__description">Description:
+			{{ planet.description }}</p>
+		<p class="planet__description">Stars associated with
+			{{ planet.name }}:
+			<ul>
+				{% for star in planet.Stars %}
+					<li>
+						<div class="planet-stars">
+							<a href="/stars/{{star.id}}" class"planet-stars__link">
+								<img src="{{star.imageUrl}}" alt="Image of {{star.name}}" class="planet-stars__image">
+							</a>
+							<a href="/stars/{{star.id}}" class="planet-stars__link">
+								<span class="planet-stars__name">{{ star.name }}</span>
+							</a>
+						</div>
+					</li>
+				{% else %}
+					<li>No stars found.</li>
+				{% endfor %}
+			</ul>
+		</p>
+
+
+		<a class="planet__link planet__link--update" href="/planets/{{ planet.id }}/edit">Update Planet</a>
+		<form class="planet__form planet__form--delete  delete-form" action="/planets/delete/{{ planet.id }}" method="post">
+			<button class="planet__button planet__button--delete" type="submit">Delete Planet</button>
+		</form>
+
+		<a class="planet__link planet__link--back" href="/planets">Back to List</a>
+	</section>
+
+{% endblock %}

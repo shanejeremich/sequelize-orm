@@ -1,0 +1,26 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block main %}
+
+	<section class="galaxies">
+		<h1 class="galaxies__title">Galaxies</h1>
+		<button class="galaxies__add-link" onclick="window.location.href='/galaxies/new'">Add New Galaxy</button>
+		<ul class="galaxies__list">
+
+			{% for galaxy in galaxies %}
+				<li class="galaxies__item">
+					<a class="galaxies__link" href="/galaxies/{{ galaxy.id }}">
+						<img src="{{ galaxy.imageUrl }}" alt="{{ galaxy.name }}" class="galaxies__image">
+						<span class="galaxies__name">{{ galaxy.name }}</span>
+					</a>
+					<form class="galaxies__form delete-form" action="/galaxies/delete/{{ galaxy.id }}" method="post">
+						<button class="galaxies__button galaxies__button--delete" type="submit">Delete</button>
+						<button class="button" onclick="window.location.href='/galaxies/{{ galaxy.id }}/edit'" type="button">Update</button>
+					</form>
+				</li>
+			{% endfor %}
+
+		</ul>
+	</section>
+
+{% endblock %}

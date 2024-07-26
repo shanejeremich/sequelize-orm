@@ -1,0 +1,33 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block title %}Update Galaxy
+{% endblock %}
+
+{% block main %}
+
+	<section class="galaxy-update">
+		<h1 class="galaxy-update__title">Update Galaxy</h1>
+		<form class="galaxy-update__form" action="/galaxies/{{ galaxy.id }}" method="post" enctype="multipart/form-data">
+				<label class="galaxy-update__label" for="name">Name:</label>
+				<input type="text" id="name" name="name" value="{{ galaxy.name }}" required class="galaxy-update__input">
+			
+				<label class="galaxy-update__label" for="size">Size:</label>
+				<input type="number" id="size" name="size" value="{{ galaxy.size }}" required class="galaxy-update__input galaxy-update__input--number">
+			
+				<label class="galaxy-update__label" for="description">Description:</label>
+				<textarea id="description" name="description" required class="galaxy-update__textarea">{{ galaxy.description }}</textarea>
+			</div>
+			<label class="galaxy-update__label" for="image">Galaxy Image:</label>
+			<input type="file" id="image" name="image" class="galaxy-update__input galaxy-update__input--file">
+
+      
+      <label for="stars">Stars (comma-separated IDs):</label>
+      <input type="text" id="stars" name="stars" value="{{ starIds|join(', ') }}" class="galaxy-update__input">
+
+			<button type="submit" class="galaxy-update__button">Update Galaxy</button>
+		<a href="/galaxies/{{ galaxy.id }}" class="galaxy-update__link galaxy-update__link--cancel">Cancel</a>
+		</form>
+
+	</section>
+
+{% endblock %}

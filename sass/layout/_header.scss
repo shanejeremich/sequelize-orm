@@ -1,0 +1,38 @@
+@use "../base/" as *;
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  background: $aquamarine;
+  color: $black;
+  padding: 1rem;
+  height: 4rem;
+}
+
+.header__home {
+  align-self: center;
+  transition: all 0.2s;
+
+  &-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: $black;
+    font-size: $heading-5-size;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    transition: all 0.2s;
+
+    &:hover {
+      color: $purpureus;
+    }
+  }
+
+  &-icon {
+    height: 3.5rem;
+  }
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}

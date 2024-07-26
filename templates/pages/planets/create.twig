@@ -1,0 +1,30 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block title %}Create New Planet
+{% endblock %}
+
+{% block main %}
+
+	<section class="planet-create">
+		<h1 class="planet-create__title">Create a New Planet</h1>
+		<form class="planet-create__form" action="/planets" method="post" enctype="multipart/form-data">
+			<label class="planet-create__label" for="name">Name:</label>
+			<input class="planet-create__input" type="text" id="name" name="name" required>
+
+			<label class="planet-create__label" for="size">Size:</label>
+			<input class="planet-create__input planet-create__input--number" type="number" id="size" name="size" required>
+
+			<label class="planet-create__label" for="description">Description:</label>
+			<textarea class="planet-create__textarea" id="description" name="description" required></textarea>
+
+			<label class="planet-create__label" for="image">Image:</label>
+			<input class="planet-create__input planet-create__input--file" type="file" id="image" name="image" accept="image/*">
+
+			<label for="stars">Stars (comma-separated IDs):</label>
+			<input type="text" id="stars" name="stars">
+
+			<button class="planet-create__button" type="submit">Create Planet</button>
+		</form>
+	</section>
+
+{% endblock %}

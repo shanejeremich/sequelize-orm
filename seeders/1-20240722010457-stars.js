@@ -3,15 +3,10 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     try {
-      // Retrieve all galaxies
       const galaxies = await queryInterface.sequelize.query(`SELECT id, name FROM \`Galaxies\`;`, {
         type: Sequelize.QueryTypes.SELECT,
       });
 
-      // // Convert array of galaxies to a map for easier access
-      // const galaxyMap = new Map(galaxies.map(galaxy => [galaxy.name, galaxy.id]));
-
-      // Define star-galaxy relationships
       await queryInterface.bulkInsert(
         `Stars`,
         [
@@ -20,6 +15,7 @@ module.exports = {
             galaxyId: 1,
             size: 1391016,
             description: "The star at the center of the Solar System.",
+            imageUrl: "/uploads/stars/sun.jpg",
             createdAt: new Date(),
             updatedAt: new Date(),
           },
@@ -28,6 +24,7 @@ module.exports = {
             galaxyId: 1,
             size: 236695,
             description: "The brightest star in Earth's night sky.",
+            imageUrl: "/uploads/stars/sirius.jpg",
             createdAt: new Date(),
             updatedAt: new Date(),
           },
@@ -36,6 +33,7 @@ module.exports = {
             galaxyId: 1,
             size: 173840,
             description: "The closest star system to the Solar System.",
+            imageUrl: "/uploads/stars/alpha-centauri.webp",
             createdAt: new Date(),
             updatedAt: new Date(),
           },
@@ -44,6 +42,7 @@ module.exports = {
             galaxyId: 1,
             size: 1172411168,
             description: "A red supergiant star in the constellation of Orion.",
+            imageUrl: "/uploads/stars/betelgeuse.jpeg",
             createdAt: new Date(),
             updatedAt: new Date(),
           },
@@ -53,6 +52,7 @@ module.exports = {
             size: 383260,
             description:
               "The fifth-brightest star in the night sky and the second-brightest star in the northern celestial hemisphere.",
+            imageUrl: "/uploads/stars/vega.jpg",
             createdAt: new Date(),
             updatedAt: new Date(),
           },

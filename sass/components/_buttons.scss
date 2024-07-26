@@ -1,0 +1,22 @@
+@use "../base/" as *;
+
+button,
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+
+  background-color: $aquamarine;
+  color: $black;
+  border: none;
+  border-radius: 0.25rem;
+
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: $purpureus;
+    color: $white;
+  }
+}

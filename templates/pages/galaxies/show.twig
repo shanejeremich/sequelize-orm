@@ -1,0 +1,41 @@
+{% extends '../../layouts/base.twig' %}
+
+{% block main %}
+
+	<section class="galaxy">
+		<h1 class="galaxy__title">{{ galaxy.name }}</h1>
+		<img class="galaxy__image" src="{{ galaxy.imageUrl }}" alt="Image of {{ galaxy.name }}"/>
+		<p class="galaxy__size">Size:
+			{{ galaxy.size }}</p>
+		<p class="galaxy__description">Description:
+			{{ galaxy.description }}</p>
+		<p class="galaxy__description">Stars associated with
+			{{ galaxy.name }}:
+			<ul>
+				{% for star in galaxy.Stars %}
+					<li>
+						<div class="galaxy-stars">
+							<a href="/stars/{{star.id}}" class"galaxy-stars__link">
+								<img src="{{star.imageUrl}}" alt="Image of {{star.name}}" class="galaxy-stars__image">
+							</a>
+							<a href="/stars/{{star.id}}" class="galaxy-stars__link">
+								<span class="galaxy-stars__name">{{ star.name }}</span>
+							</a>
+						</div>
+					</li>
+				{% else %}
+					<li>No stars found.</li>
+				{% endfor %}
+			</ul>
+		</p>
+
+
+		<a class="galaxy__link galaxy__link--update" href="/galaxies/{{ galaxy.id }}/edit">Update Galaxy</a>
+		<form class="galaxy__form galaxy__form--delete  delete-form" action="/galaxies/delete/{{ galaxy.id }}" method="post">
+			<button class="galaxy__button galaxy__button--delete" type="submit">Delete Galaxy</button>
+		</form>
+
+		<a class="galaxy__link galaxy__link--back" href="/galaxies">Back to List</a>
+	</section>
+
+{% endblock %}

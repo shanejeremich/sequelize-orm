@@ -1,0 +1,19 @@
+@use "../base/" as *;
+
+.navbar {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+
+    &:hover {
+      background: $black;
+      border-radius: 5px;
+      color: $white;
+      cursor: pointer;
+    }
+  }
+}
